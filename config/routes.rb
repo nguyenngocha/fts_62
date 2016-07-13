@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root "static_pages#home"
 
+
   devise_for :admins, controllers: {
     sessions: "admins/sessions"
   }, skip: [ :passwords, :registrations]
@@ -14,5 +15,9 @@ Rails.application.routes.draw do
     get "admins/edit" => "admins/registrations#edit",
       as: "edit_admin_registration"
     put "admins" => "admins/registrations#update", as: "admin_registration"
+  end
+
+  namespace :admins do
+    resources :subjects, only: [:create, :new]
   end
 end

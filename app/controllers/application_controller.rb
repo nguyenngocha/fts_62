@@ -11,4 +11,6 @@ class ApplicationController < ActionController::Base
       :chatwork_id, :email, :password, :password_confirmation,
       :current_password)}
   end
+
+  include CanCan::ControllerAdditions
 end

@@ -1,7 +1,7 @@
 class AddDeviseToAdmins < ActiveRecord::Migration
   def self.up
     change_table :admins do |t|
-      t.string :email, null: false, default: ""
+      t.string :email
       t.string :encrypted_password, null: false, default: ""
 
       t.string   :reset_password_token

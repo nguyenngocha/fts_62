@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160713090513) do
     t.string   "remember_digest"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
+    t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
