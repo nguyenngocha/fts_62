@@ -8,3 +8,16 @@ en:
   contact: "Contact"
   develop_by: "Developed by HEDSPI"
   welcome: "Welcome to Project 3"
+  subject:
+    new_subject: "New Subject"
+    content: "Content: "
+    number_of_questions: "Exam number of questions"
+    duration: "Duration(minutes)"
+    submit: "Create subject"
+    add_fail: "Subject add failed"
+    add_success: "Subject added successfully"
+    edit_subject: "Save changes"
+    edit_success: "Subject edited successfully"
+    edit_fail: "Subject edit failed"
+  flash:
+    error: "error"
