@@ -1,5 +1,6 @@
 class Admins::SubjectsController < ApplicationController
   load_and_authorize_resource except: [:destroy, :show]
+
   def create
     if @subject.save
       flash[:success] = t "subject.add_success"
