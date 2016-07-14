@@ -16,7 +16,7 @@ class Admins::SubjectsController < ApplicationController
       flash[:success] = t "subject.edit_success"
       redirect_to admins_subjects_path
     else
-      flash[:danger] = t "subject.edit_failed"
+      flash[:danger] = t "subject.update_failed"
       render :edit
     end
   end
