@@ -24,6 +24,13 @@ gem "jquery-countdown-rails"
 
 group :development, :test do
   gem "byebug"
-  gem "web-console", "~> 2.0"
   gem "spring"
+  gem "rspec-rails", "~> 3.4"
+  gem "simplecov", :require => false, :group => :test
+  gem "shoulda-matchers", "~> 3.1"
+  gem "factory_girl_rails"
+end
+
+group :development do
+  gem "web-console", "~> 2.0"
 end
