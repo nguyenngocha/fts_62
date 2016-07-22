@@ -1,5 +1,5 @@
 class Admins::SubjectsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :destroy
 
   def show
     @questions = @subject.questions.page(params[:page]).
@@ -32,9 +32,13 @@ class Admins::SubjectsController < ApplicationController
   end
 
   def destroy
-    @subject.destroy ?
-      (flash[:success] = t "subject.delete_success") :
-      (flash[:danger] = t "subject.delete_fail")
+    @subject = Subject.find_by id: params[:id]
+    if @subject.nil?
+      flash[:danger] = t "subject.delete_fail"
+    else
+      @subject.destroy
+      flash[:success] = t "subject.delete_success"
+    end
     redirect_to admins_subjects_path
   end
 

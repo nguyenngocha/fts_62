@@ -1,6 +1,6 @@
 class Admins::QuestionsController < ApplicationController
   load_and_authorize_resource
-  skip_load_resource only: :create
+  skip_load_resource only: [:create, :destroy]
   before_action :load_sources, only: [:new, :edit, :index]
   before_action :load_question_form, only: [:edit, :update]
 
@@ -47,10 +47,12 @@ class Admins::QuestionsController < ApplicationController
   end
 
   def destroy
-    if @question.destroy
-      flash[:success] = t "question.delete_success"
-    else
+    @question = Question.find_by id: params[:id]
+    if @question.nil?
       flash.now[:danger] = t "question.delete_fail"
+    else
+      @question.destroy
+      flash[:success] = t "question.delete_success"
     end
     redirect_to :back
   end

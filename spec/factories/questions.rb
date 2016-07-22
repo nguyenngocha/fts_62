@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :question do
-    content {Faker::Lorem.sentence}
+    content Faker::Lorem.sentence
     status 1
     subject
 

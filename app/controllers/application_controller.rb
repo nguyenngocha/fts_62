@@ -19,10 +19,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
-  rescue_from ActiveRecord::RecordNotFound do
-    flash[:danger] = t "not_found"
-    redirect_to root_url
-  end
+  # rescue_from ActiveRecord::RecordNotFound do
+  #   flash[:danger] = t "not_found"
+  #   redirect_to root_url
+  # end
 
   protected
   def configure_permitted_parameters
