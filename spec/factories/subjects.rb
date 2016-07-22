@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :subject do
-    content {Faker::Lorem.sentence}
+    content Faker::Lorem.sentence
     number_of_questions 5
     duration 30
 
