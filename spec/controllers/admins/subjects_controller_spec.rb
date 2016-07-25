@@ -44,12 +44,12 @@ RSpec.describe Admins::SubjectsController, type: :controller do
 
   describe "#create" do
     it "crete success" do
-      put :create, subject: attr_true
+      post :create, subject: attr_true
       expect(response).to redirect_to admins_subjects_path
     end
 
     it "create fail" do
-      put :create, subject: attr_false
+      post :create, subject: attr_false
       expect(response).to render_template :new
     end
   end
@@ -67,13 +67,13 @@ RSpec.describe Admins::SubjectsController, type: :controller do
     let(:subject) {FactoryGirl.create :subject}
 
     it "update success" do
-      put :update, id: subject.id, subject: attr_true
+      patch :update, id: subject.id, subject: attr_true
       expect(flash[:success]).to be_present
       expect(response).to redirect_to admins_subjects_path
     end
 
     it "update fail" do
-      put :update, id: subject.id, subject: attr_false
+      patch :update, id: subject.id, subject: attr_false
       expect(flash[:danger]).to be_present
       expect(response).to render_template :edit
     end

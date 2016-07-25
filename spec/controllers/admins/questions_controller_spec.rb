@@ -42,12 +42,12 @@ RSpec.describe Admins::QuestionsController, type: :controller do
 
   describe "#create" do
     it "crete success" do
-      put :create, question: attr_true
+      post :create, question: attr_true
       expect(response).to redirect_to admins_questions_path
     end
 
     it "create fail" do
-      put :create, question: attr_false
+      post :create, question: attr_false
       expect(response).to render_template :new
     end
   end
@@ -57,13 +57,13 @@ RSpec.describe Admins::QuestionsController, type: :controller do
     before {request.env["HTTP_REFERER"] = "/admins/questions"}
 
     it "update success" do
-      put :update, id: question.id, question: attr_true
+      patch :update, id: question.id, question: attr_true
       expect(flash[:success]).to be_present
       expect(response).to redirect_to admins_questions_path
     end
 
     it "update fail" do
-      put :update, id: question.id, question: attr_false
+      patch :update, id: question.id, question: attr_false
       expect(flash[:danger]).to be_present
       expect(response).to render_template :edit
     end

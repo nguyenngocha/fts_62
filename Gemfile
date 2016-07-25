@@ -21,6 +21,7 @@ gem "omniauth-github"
 gem "reform"
 gem "reform-rails"
 gem "jquery-countdown-rails"
+gem "capybara"
 
 group :development, :test do
   gem "byebug"
